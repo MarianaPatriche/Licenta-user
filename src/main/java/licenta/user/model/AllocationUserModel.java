@@ -13,6 +13,8 @@ public class AllocationUserModel {
 
     private String endDate;
 
+    private String picturePath;
+
     public String getName() {
         return name;
     }
@@ -45,6 +47,14 @@ public class AllocationUserModel {
         this.allocationId = allocationId;
     }
 
+    public String getPicturePath() {
+        return picturePath;
+    }
+
+    public void setPicturePath(String picturePath) {
+        this.picturePath = picturePath;
+    }
+
     @Override
     public String toString() {
         return "AllocationUserModel{" +
@@ -52,6 +62,7 @@ public class AllocationUserModel {
                 ", name='" + name + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", picturePath='" + picturePath + '\'' +
                 '}';
     }
 }

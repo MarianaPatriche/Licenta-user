@@ -9,6 +9,7 @@ public class ProfileModel {
     private String repeatPassword;
     private String oldPassword;
     private String picturePath;
+    private String username;
 
     public Long getId() {
         return id;
@@ -48,5 +49,25 @@ public class ProfileModel {
 
     public void setOldPassword(String oldPassword) {
         this.oldPassword = oldPassword;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "ProfileModel{" +
+                "id=" + id +
+                ", newPassword='" + newPassword + '\'' +
+                ", repeatPassword='" + repeatPassword + '\'' +
+                ", oldPassword='" + oldPassword + '\'' +
+                ", picturePath='" + picturePath + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

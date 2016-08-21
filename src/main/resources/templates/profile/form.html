@@ -36,53 +36,49 @@
                     <div class="box-content">
                         <form class="form-horizontal" enctype="multipart/form-data" method="post" th:object="${profile}" th:action="@{/user/profile/save}">
                             <fieldset>
-                                <input type="hidden" th:field="*{id}"/>
                                 <div class="control-group">
                                     <label class="control-label" for="username">Username</label>
                                     <div class="controls">
                                         <input class="input-xlarge focused" id="username" type="text" th:field="*{username}" disabled="true"/>
                                     </div>
-                                    <div id="nameError"
-                                         th:if="${#fields.hasErrors('username')}"
-                                         th:errors="*{username}" style="color: red"></div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" for="picture">Poza </label>
                                     <div class="controls">
-                                        <input class="input-xlarge focused" id="picture" type="file"/>
+                                        <input class="input-xlarge focused" id="picture" type="file" name="picture"/>
                                     </div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" for="new-password">Parola noua</label>
                                     <div class="controls">
-                                        <input type="text" class="input-xlarge datepicker" id="new-password"/>
+                                        <input type="text" class="input-xlarge focused" id="new-password" th:field="*{newPassword}"/>
                                     </div>
                                     <div id="new-passwordError"
-                                         th:if="${#fields.hasErrors('new-password')}"
-                                         th:errors="*{new-password}" style="color: red"></div>
+                                         th:if="${#fields.hasErrors('newPassword')}"
+                                         th:errors="*{newPassword}" style="color: red"></div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" for="repeat-password">Repeta parola</label>
                                     <div class="controls">
-                                        <input type="text" class="input-xlarge datepicker" id="repeat-password" th:field="*{repeatPassword}"/>
+                                        <input type="text" class="input-xlarge focused" id="repeat-password" th:field="*{repeatPassword}"/>
                                     </div>
                                     <div id="endDateError"
-                                         th:if="${#fields.hasErrors('repeat-password')}"
+                                         th:if="${#fields.hasErrors('repeatPassword')}"
                                          th:errors="*{repeatPassword}" style="color: red"></div>
                                 </div>
-
+<!--
                                 <div class="control-group">
                                     <label class="control-label" for="old-password">Parola actuala</label>
                                     <div class="controls">
                                         <input class="input-xlarge focused" id="old-password" type="text" th:field="*{oldPassword}"/>
                                     </div>
                                     <div id="hoursError"
-                                         th:if="${#fields.hasErrors('old-password')}"
+                                         th:if="${#fields.hasErrors('oldPassword')}"
                                          th:errors="*{oldPassword}" style="color: red"></div>
-                                </div>
+                                </div>-->
 
                                 <div class="form-actions">
                                     <button type="submit" class="btn btn-primary">Salveaza</button>

@@ -38,6 +38,7 @@ public class AllocationService {
             model.setStartDate(DateUtils.dateToString(employeeProject.getCreatedDate()));
             model.setEndDate(DateUtils.dateToString(employeeProject.getLastUpdateDate()));
             model.setAllocationId(employeeProject.getId());
+            model.setPicturePath(employeeProject.getEmployee().getUser().getPicture());
 
             modelList.add(model);
         }
