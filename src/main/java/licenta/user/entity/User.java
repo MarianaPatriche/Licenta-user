@@ -30,6 +30,9 @@ public class User{
     @Column(name = "enabled")
     private Boolean enabled;
 
+    @Column(name = "picture")
+    private String picture;
+
     public Long getId() {
         return id;
     }
@@ -60,6 +63,14 @@ public class User{
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public User(String password, String username, Boolean enabled) {

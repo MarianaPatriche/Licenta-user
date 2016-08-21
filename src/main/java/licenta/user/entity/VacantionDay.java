@@ -1,6 +1,5 @@
 package licenta.user.entity;
 
-import org.joda.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 
 /**
@@ -26,8 +26,8 @@ public class VacantionDay {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "USER_ID")
-    private User user;
+    @JoinColumn(name = "EMPLOYEE_ID")
+    private Employee employee;
 
     @Column(name = "day")
     private LocalDate day;
@@ -40,12 +40,12 @@ public class VacantionDay {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public LocalDate getDay() {

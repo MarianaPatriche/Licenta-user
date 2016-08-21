@@ -1,7 +1,6 @@
 package licenta.user.entity;
 
 
-import org.joda.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -9,6 +8,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
 import licenta.user.util.Auth;
+
+import java.time.LocalDate;
 
 
 /**
@@ -21,28 +22,28 @@ public abstract class AbstractAuditable {
     private String createdBy;
 
     @Column(name = "CREATED", nullable = false)
-    private LocalDateTime createdDate;
+    private LocalDate createdDate;
 
     @Column(name = "LAST_UPDATE_BY", nullable = false)
     private String lastUpdateBy;
 
     @Column(name = "LAST_UPDATE", nullable = false)
-    private LocalDateTime lastUpdateDate;
+    private LocalDate lastUpdateDate;
 
 
     @PrePersist
     public void addCreatedBy() {
         this.createdBy = Auth.userLoggedIn();
-        this.createdDate = LocalDateTime.now();
+        this.createdDate = LocalDate.now();
         this.lastUpdateBy = Auth.userLoggedIn();
-        this.lastUpdateDate = LocalDateTime.now();
+        this.lastUpdateDate = LocalDate.now();
     }
 
     @PreUpdate
     public void addLastUpdateBy() {
         if (Auth.userLoggedIn() != null) {
             this.lastUpdateBy = Auth.userLoggedIn();
-            this.lastUpdateDate = LocalDateTime.now();
+            this.lastUpdateDate = LocalDate.now();
         }
     }
 
@@ -54,11 +55,11 @@ public abstract class AbstractAuditable {
         this.createdBy = createdBy;
     }
 
-    public LocalDateTime getCreatedDate() {
+    public LocalDate getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
+    public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -70,11 +71,11 @@ public abstract class AbstractAuditable {
         this.lastUpdateBy = lastUpdateBy;
     }
 
-    public LocalDateTime getLastUpdateDate() {
+    public LocalDate getLastUpdateDate() {
         return lastUpdateDate;
     }
 
-    public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
+    public void setLastUpdateDate(LocalDate lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
     }
 }

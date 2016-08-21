@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<!-- start: Header -->
+<div th:replace="fragments/navbar :: navbar"></div>
+<!-- start: Header -->
+
+<div class="container-fluid-full">
+    <div class="row-fluid">
+
+        <!-- start: Main Menu -->
+        <div th:replace="fragments/menu :: menu"></div>
+        <!-- end: Main Menu -->
+
+        <noscript>
+            <div class="alert alert-block span10">
+                <h4 class="alert-heading">Warning!</h4>
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+            </div>
+        </noscript>
+
+        <!-- start: Content -->
+        <div id="content" class="span10">
+
+            <div class="row-fluid sortable">
+                <div class="box span12">
+                    <div class="box-header">
+                        <h2><i class="halflings-icon white edit"></i><span class="break"></span>Adauga un nou proiect!</h2>
+                        <div class="box-icon">
+                            <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                            <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                            <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <form class="form-horizontal" enctype="multipart/form-data" method="post" th:object="${profile}" th:action="@{/user/profile/save}">
+                            <fieldset>
+                                <input type="hidden" th:field="*{id}"/>
+                                <div class="control-group">
+                                    <label class="control-label" for="username">Username</label>
+                                    <div class="controls">
+                                        <input class="input-xlarge focused" id="username" type="text" th:field="*{username}" disabled="true"/>
+                                    </div>
+                                    <div id="nameError"
+                                         th:if="${#fields.hasErrors('username')}"
+                                         th:errors="*{username}" style="color: red"></div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="picture">Poza </label>
+                                    <div class="controls">
+                                        <input class="input-xlarge focused" id="picture" type="file"/>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="new-password">Parola noua</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge datepicker" id="new-password"/>
+                                    </div>
+                                    <div id="new-passwordError"
+                                         th:if="${#fields.hasErrors('new-password')}"
+                                         th:errors="*{new-password}" style="color: red"></div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="repeat-password">Repeta parola</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge datepicker" id="repeat-password" th:field="*{repeatPassword}"/>
+                                    </div>
+                                    <div id="endDateError"
+                                         th:if="${#fields.hasErrors('repeat-password')}"
+                                         th:errors="*{repeatPassword}" style="color: red"></div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="old-password">Parola actuala</label>
+                                    <div class="controls">
+                                        <input class="input-xlarge focused" id="old-password" type="text" th:field="*{oldPassword}"/>
+                                    </div>
+                                    <div id="hoursError"
+                                         th:if="${#fields.hasErrors('old-password')}"
+                                         th:errors="*{oldPassword}" style="color: red"></div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Salveaza</button>
+                                    <button class="btn">Renunta</button>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                    </div>
+                </div><!--/span-->
+
+            </div><!--/row-->
+
+        </div><!--/.fluid-container-->
+
+        <!-- end: Content -->
+    </div><!--/#content.span10-->
+</div><!--/fluid-row-->
+
+
+<div class="clearfix"></div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

@@ -1,6 +1,5 @@
 package licenta.user.entity;
 
-import org.joda.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +12,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import licenta.user.util.ProjectStatus;
+
+import java.time.LocalDate;
 
 
 /**
