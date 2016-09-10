@@ -41,7 +41,8 @@
                                     <label class="control-label">Tip</label>
                                     <div class="controls">
                                         <select id="project" th:field="*{type}">
-                                            <option th:each="type : ${dayType}" th:value="${type}"  th:text="${type}"></option>
+                                            <option th:each="type : ${dayType}" th:value="${type}"
+                                                    th:text="${type==T(licenta.user.util.FreeDayType).SICK_DAY ? 'Medical' : 'Concediu'}"></option>
                                         </select>
                                     </div>
                                 </div>
@@ -58,7 +59,7 @@
 
                                 <div class="form-actions">
                                     <button type="submit" class="btn btn-primary">Salveaza</button>
-                                    <button class="btn">Renunta</button>
+                                    <a th:href="@{/}"><input class="btn btn-default" type="button" th:value="Renunta"></input></a>
                                 </div>
                             </fieldset>
                         </form>

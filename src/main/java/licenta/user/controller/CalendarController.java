@@ -31,6 +31,9 @@ public class CalendarController extends BaseController{
     @ResponseBody
     public List<ProjectCalendarModel> getProjectCalendarData(@RequestParam(name = "date", required = false) String date) throws Exception{
         if(date != null) {
+            if(date.length() < 10){
+                date = date.substring(0,3) + "0" + date.substring(3, date.length());
+            }
             return calendarService.getProjectCalendarForUser(DateUtils.toLocalDate(date));
         }
         return calendarService.getProjectCalendarForUser(LocalDate.now());

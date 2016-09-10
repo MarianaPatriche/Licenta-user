@@ -26,7 +26,7 @@
             <div class="row-fluid sortable">
                 <div class="box span12">
                     <div class="box-header">
-                        <h2><i class="halflings-icon white edit"></i><span class="break"></span>Adauga un nou proiect!</h2>
+                        <h2><i class="halflings-icon white edit"></i><span class="break"></span>Profilul meu</h2>
                         <div class="box-icon">
                             <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
                             <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -53,7 +53,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="new-password">Parola noua</label>
                                     <div class="controls">
-                                        <input type="text" class="input-xlarge focused" id="new-password" th:field="*{newPassword}"/>
+                                        <input type="password" class="input-xlarge focused" id="new-password" th:field="*{newPassword}"/>
                                     </div>
                                     <div id="new-passwordError"
                                          th:if="${#fields.hasErrors('newPassword')}"
@@ -63,7 +63,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="repeat-password">Repeta parola</label>
                                     <div class="controls">
-                                        <input type="text" class="input-xlarge focused" id="repeat-password" th:field="*{repeatPassword}"/>
+                                        <input type="password" class="input-xlarge focused" id="repeat-password" th:field="*{repeatPassword}"/>
                                     </div>
                                     <div id="endDateError"
                                          th:if="${#fields.hasErrors('repeatPassword')}"
@@ -82,7 +82,7 @@
 
                                 <div class="form-actions">
                                     <button type="submit" class="btn btn-primary">Salveaza</button>
-                                    <button class="btn">Renunta</button>
+                                   <a th:href="@{/}"><input class="btn btn-default" type="button" th:value="Renunta"></input></a>
                                 </div>
                             </fieldset>
                         </form>
