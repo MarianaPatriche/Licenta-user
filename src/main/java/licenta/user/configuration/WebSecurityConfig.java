@@ -56,7 +56,7 @@ public class WebSecurityConfig {
     }
 
 
-    @Autowired
+   /* @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("select username, password, enabled "
@@ -65,6 +65,17 @@ public class WebSecurityConfig {
                         "select u.username, ur.role from users u, user_role ur  "
                                 + "where  ur.user_id = u.id and u.username = ?")
                 .passwordEncoder(passwordEncoder());
+    }*/
+
+
+    @Autowired
+    public void registerSharedAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("user").password("user").roles("USER").and()
+                .withUser("maria.ion").password("parola").roles("USER").and()
+                .withUser("cristian.popescu").password("parola").roles("USER").and()
+                .withUser("mihai.ionescu").password("parola").roles("USER");
     }
 
 

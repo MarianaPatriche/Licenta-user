@@ -63,13 +63,13 @@
                                     <td th:text="${#temporals.format(project.startDate, 'dd/MM/yyyy')}"></td>
                                     <td th:text="${#temporals.format(project.endDate, 'dd/MM/yyyy')}"></td>
                                     <td class="center">
-                                        <span th:if="${#strings.toString(project.status) == 'STARTED'}"
+                                        <span th:if="${#strings.toString(project.status) == 'Inceput'}"
                                               class="label label-success">Inceput</span>
-                                        <span th:if="${#strings.toString(project.status) == 'MAINTENANCE'}"
+                                        <span th:if="${#strings.toString(project.status) == 'Mentenanta'}"
                                               class="label label-danger">Mentenanta</span>
-                                        <span th:if="${#strings.toString(project.status) == 'DELAYED'}"
-                                              class="label label-warning">Intarziat</span>
-                                        <span th:if="${#strings.toString(project.status) == 'ENDED'}"
+                                        <span th:if="${#strings.toString(project.status) == 'Amanat'}"
+                                              class="label label-warning">Amanat</span>
+                                        <span th:if="${#strings.toString(project.status) == 'Terminat'}"
                                               class="label">Finalizat</span>
                                     </td>
                                     <td th:text="${project.hours}"></td>

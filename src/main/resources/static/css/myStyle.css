@@ -9,3 +9,7 @@
 .statbox .footer a{
     margin-left: 10px;
 }
+
+.task{
+    height: 100px !important;
+}
